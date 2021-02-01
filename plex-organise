@@ -1,0 +1,8 @@
+#!/bin/bash
+# java 8
+# patched filebot 4.7.9
+
+DST=~/uploads
+FORMAT={plex}
+
+filebot -rename * --output $DST --format $FORMAT --mode interactive -no-xattr

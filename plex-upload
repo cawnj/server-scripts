@@ -1,0 +1,7 @@
+#!/bin/bash
+
+SRC=~/uploads
+DST=gcrypt:
+LOGFILE=~/logs/upload.log
+
+rclone move $SRC $DST -P --log-file $LOGFILE --drive-chunk-size 64M --fast-list --verbose

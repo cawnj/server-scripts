@@ -1,0 +1,10 @@
+#!/bin/bash
+
+NAME=Plex
+DST=gcryptbackup:/PMS
+
+sudo service plexmediaserver stop
+sudo -s tar -cvjf /tmp/$NAME.$(date +%F).tar.bz2 /var/lib/plexmediaserver
+sudo service plexmediaserver start
+sudo rclone copy /tmp/$NAME.* $DST -v --checksum --drive-chunk-size=64M
+sudo rm /tmp/$NAME.*
