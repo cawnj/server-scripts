@@ -4,5 +4,9 @@
 
 DST=~/uploads
 FORMAT={plex}
+LOGFILE=~/logs/filebot.log
+MODE="Rename -non-strict"
+#MODE=interactive
 
-filebot -rename * --output $DST --format $FORMAT --mode interactive -no-xattr
+filebot -rename * --output $DST --format $FORMAT --log-file $LOGFILE --mode $MODE -no-xattr
+
