@@ -3,7 +3,7 @@
 # patched filebot 4.7.9
 
 DST=~/uploads
-FORMAT={plex}
+FORMAT="{plex.path.ascii()}"
 LOGFILE=~/logs/filebot.log
 MODE="Rename -non-strict"
 #MODE=interactive

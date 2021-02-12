@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SRC=~/uploads
-DST=gcrypt:
+DST=gcrypt-nocache:
 LOGFILE=~/logs/upload.log
 
 rclone move $SRC $DST -P --log-file $LOGFILE --drive-chunk-size 64M --fast-list --delete-empty-src-dirs --verbose

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in *.mkv
+do
+ffmpeg -i "$i" -c copy -c:a aac -movflags +faststart "${i%.*}.mp4"
+done

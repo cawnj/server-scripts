@@ -1,0 +1,34 @@
+[Unit]
+Description=Mount and cache Google drive to /media/Plex
+After=syslog.target local-fs.target network.target
+
+[Service]
+Environment=RCLONEHOME=/home/plexuser/.config/rclone
+Environment=REMOTE=gcrypt:
+Environment=MOUNTTO=/media/Plex
+Environment=LOGS=/home/plexuser/logs
+Environment=CACHE=/home/plexuser/cache
+Type=simple
+User=root
+ExecStartPre=/bin/mkdir -p ${MOUNTTO}
+ExecStartPre=/bin/mkdir -p ${LOGS}
+ExecStartPre=/bin/mkdir -p ${CACHE}
+ExecStart=/usr/bin/rclone mount \
+  --log-file ${LOGS}/rclone.log \
+  --log-level INFO \
+  --umask 002 \
+  --allow-non-empty \
+  --allow-other \
+  --fuse-flag sync_read \
+  --dir-cache-time=72h \
+  --cache-dir ${CACHE} \
+  --fast-list \
+  --config ${RCLONEHOME}/rclone.conf \
+  ${REMOTE} ${MOUNTTO}
+ExecStop=/bin/fusermount -u -z ${MOUNTTO}
+ExecStop=/bin/rmdir ${MOUNTTO}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
