@@ -13,7 +13,8 @@ do
 		echo
 		echo "STORAGE FULL, ORGANISING AND UPLOADING"
 		echo
-		cd download
+		mkdir -p /home/plexuser/uploads/Movies
+		mv download/* /home/plexuser/uploads/Movies/
 		plex-upload
 		cd ..
 	fi
@@ -22,7 +23,8 @@ done
 echo
 echo "FINISHED DOWNLOADING, ORGANISING AND UPLOADING"
 echo
-cd download
+mkdir -p /home/plexuser/uploads/Movies
+mv download/* /home/plexuser/uploads/Movies/
 plex-upload
 
 echo
