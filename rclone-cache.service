@@ -23,6 +23,7 @@ ExecStart=/usr/bin/rclone mount \
   --dir-cache-time=72h \
   --cache-dir ${CACHE} \
   --fast-list \
+  --cache-db-purge \
   --config ${RCLONEHOME}/rclone.conf \
   ${REMOTE} ${MOUNTTO}
 ExecStop=/bin/fusermount -u -z ${MOUNTTO}
