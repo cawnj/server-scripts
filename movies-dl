@@ -16,7 +16,6 @@ do
 		mkdir -p /home/plexuser/uploads/Movies
 		mv download/* /home/plexuser/uploads/Movies/
 		plex-upload
-		cd ..
 	fi
 done
 
