@@ -1,0 +1,8 @@
+docker run -d \
+  --name overseerr \
+  -e LOG_LEVEL=info \
+  -e TZ=Europe/Dublin \
+  -p 5055:5055 \
+  -v /home/plexuser/.config/overseerr:/app/config \
+  --restart unless-stopped \
+  sctx/overseerr

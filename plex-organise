@@ -1,4 +1,4 @@
-#!/bin/bash
+]#!/bin/bash
 # java 8
 # patched filebot 4.7.9
 
@@ -10,3 +10,8 @@ MODE="Rename -non-strict"
 
 filebot -rename * --output $DST --format $FORMAT --log-file $LOGFILE --mode $MODE -no-xattr
 
+echo .
+echo .
+echo "Remember to make a file.txt!"
+echo .
+echo .
