@@ -1,9 +1,10 @@
-]#!/bin/bash
+#!/bin/bash
 # java 8
 # patched filebot 4.7.9
 
 DST=~/uploads
 FORMAT="{plex.path.ascii()}"
+#FORMAT="{plex.path.ascii()}.x264"
 LOGFILE=~/logs/filebot.log
 MODE="Rename -non-strict"
 #MODE=interactive
