@@ -9,7 +9,8 @@ LOGFILE=~/logs/filebot.log
 MODE="Rename -non-strict"
 #MODE=interactive
 
-filebot -rename * --output $DST --format $FORMAT --log-file $LOGFILE --mode $MODE -no-xattr
+echo $@
+filebot -rename * --output $DST --format $FORMAT --log-file $LOGFILE --mode $MODE -no-xattr #--q "Hunter x Hunter 2011"
 
 echo .
 echo .

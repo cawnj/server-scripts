@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo $@
 file=links.txt
 until [[ -z $(grep '[^[:space:]]' $file) ]]
 do
@@ -14,7 +15,7 @@ do
 		echo "STORAGE FULL, ORGANISING AND UPLOADING"
 		echo
 		cd download
-		plex-organise
+		plex-organise $@
 		plex-upload
 		cd ..
 	fi
@@ -24,7 +25,7 @@ echo
 echo "FINISHED DOWNLOADING, ORGANISING AND UPLOADING"
 echo
 cd download
-plex-organise
+plex-organise $@
 plex-upload
 
 echo
